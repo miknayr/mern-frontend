@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import Blog from './Components/Blog'
 import Post from './Components/Post'
-
+import Nav from './Components/Nav'
 
 import {
   BrowserRouter, // alias BrowserRouter as Router
@@ -29,6 +29,7 @@ const App = () => {
   return (
     <div className="App">
       here we go
+      <Nav />
       <BrowserRouter>
 
         <Route  //home
@@ -37,7 +38,7 @@ const App = () => {
         />
 
         <Route
-          path="/:id"
+          path="/blog/:id"
           render={props => {
               const blogPost = blog.find(e => e._id.toString() === props.match.params.id)
               props = {...props, ...blogPost}
@@ -45,8 +46,6 @@ const App = () => {
           }}
         />  
       
-
-
       </BrowserRouter>
     </div>
   );
