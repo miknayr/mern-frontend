@@ -1,4 +1,5 @@
 const Post = (props) => {
+  console.log('*** Post is rendering', props, props.name)
   return (
     <div className="container pt-3">
         <h1>{props.name}</h1>

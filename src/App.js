@@ -9,6 +9,7 @@ import Nav from './Components/Nav'
 import {
   BrowserRouter, // alias BrowserRouter as Router
   Route,
+  Switch
 } from 'react-router-dom'
 
 
@@ -31,20 +32,25 @@ const App = () => {
       here we go
       <Nav />
       <BrowserRouter>
+        <Switch>
+          <Route  //home
+            exact path='/blog'
+            render={() => {
+              console.log('*** /blog is also being hit :(')
+              return <Blog />
+            }}
+          />
 
-        <Route  //home
-          path='/blog'
-          render={() => <Blog />}
-        />
-
-        <Route
-          path="/blog/:id"
-          render={props => {
-              const blogPost = blog.find(e => e._id.toString() === props.match.params.id)
-              props = {...props, ...blogPost}
-              return <Post {...props}/>
-          }}
-        />  
+          <Route
+            path="/blog/:id"
+            render={props => {
+                const blogPost = blog.find(e => e._id.toString() === props.match.params.id)
+                props = {...props, ...blogPost}
+                console.log('*** /blog/:id is being hit', props)
+                return <Post {...props} />
+            }}
+          />
+        </Switch>
       
       </BrowserRouter>
     </div>
