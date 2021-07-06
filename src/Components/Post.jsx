@@ -1,9 +1,27 @@
+import axios from 'axios'
+import React from 'react'
+
+
+
 const Post = (props) => {
   console.log('*** Post is rendering', props, props.name)
+
+  const apiUrl = `/blog/${props._id}`
+
+
+  const deletePost = async (id) => {
+    try {
+        // setup axios call to hit api /blog/:id
+        await axios.delete(apiUrl)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
   return (
     
     <div className="container pt-3">
-        <form id='delete' action='/blog/' method='delete'>
+       
           <h1>{props.name}</h1>
           <div className="wrapper pt-3">
           
@@ -12,8 +30,8 @@ const Post = (props) => {
             <p> Content: {props.content}</p>
           </div>
 
-          <button className="btn btn-dark" >Delete</button>
-        </form>
+          <p><a href={`/edit/${props._id}`}>Edit</a>  <a href="/blog" onClick={() => deletePost(props._id)}>Delete</a></p>
+
     </div>
    
 )
