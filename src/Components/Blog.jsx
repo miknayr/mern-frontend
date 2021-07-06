@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+import { Link } from 'react-router-dom'
+
 import axios from 'axios'
 
 
@@ -25,7 +27,11 @@ const Blog = () => {
     return (
       <div className="blogCard" key={i}>
         <li >
+        <Link 
+          to={`/blog/${blogs._id}`}
+        >
           <h2>Title: {blogs.title}</h2>
+        </Link>
           <h4>Author: {blogs.author} </h4>
           <p> Content: {blogs.content}</p>
 
@@ -33,6 +39,11 @@ const Blog = () => {
         </li>
       </div>
     )
+
+
+
+
+
   })
 
 

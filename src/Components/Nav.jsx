@@ -3,14 +3,14 @@ const Nav = () => {
     <div>
       <nav>
         <div>
-              <div class="nav-item">
-                <a href="/blog" class="nav-link">
+              <div className="nav-item">
+                <a href="/blog" className="nav-link">
                     Home
                 </a>
               </div>
 
-              <div class="nav-item">
-                <a href="/newpost" class="nav-link">
+              <div className="nav-item">
+                <a href="/newpost" className="nav-link">
                     New Post
                 </a>
               </div>

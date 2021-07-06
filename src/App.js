@@ -5,6 +5,7 @@ import axios from 'axios'
 import Blog from './Components/Blog'
 import Post from './Components/Post'
 import Nav from './Components/Nav'
+import NewPost from './Components/NewPost'
 
 import {
   BrowserRouter, // alias BrowserRouter as Router
@@ -49,6 +50,11 @@ const App = () => {
                 console.log('*** /blog/:id is being hit', props)
                 return <Post {...props} />
             }}
+          />
+          
+          <Route
+            path="/newpost"
+            component={NewPost}
           />
         </Switch>
       
