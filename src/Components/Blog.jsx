@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import axios from 'axios'
+// import Container from 'react-bootstrap/Container';
+// import Row from 'react-bootstrap/Row'
+// import Col from 'react-bootstrap/Col'
 
 
 const Blog = () => {
@@ -25,26 +28,30 @@ const Blog = () => {
     // console.log('🚀 blog title: ' + blogs.title )
 
     return (
-      <div className="blogCard" key={i}>
-        <li >
-        <Link 
-          to={`/blog/${blogs._id}`}
-        >
-          <h2>Title: {blogs.title}</h2>
-        </Link>
-          <h4>Author: {blogs.author} </h4>
-          <p> Content: {blogs.content}</p>
+      
+      <div key={i}>
+            <div className="cardBlock">
+                    <Link to={`/blog/${blogs._id}`} >
+                      <div className="title">{blogs.title}</div>
+                    </Link>
+                <div className="wrapper row" id='author'>
+                      <h6 classNamed="col">by: {blogs.author} </h6>
+                </div>
 
-          <br/>
-        </li>
-      </div>
+                <div className="wrapper row" id='content'>   
+                      <p classNamed="col">{blogs.content}</p>
+                </div>
+                      <br/>
+          </div>
+        </div>
     )
 
   })
 
 
   return (
-    <div>
+    
+    <div className="gridContainer p-1">
       {entryData}
     </div>
   );

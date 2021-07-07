@@ -20,17 +20,18 @@ const Post = (props) => {
 
   return (
     
-    <div className="container pt-3">
+    <div className="container pt-3 cardBlock">
        
-          <h1>{props.name}</h1>
+         
           <div className="wrapper pt-3">
           
-            <h2>Title: {props.title}</h2>
-            <h4>Author: {props.author} </h4>
-            <p> Content: {props.content}</p>
+            <h1>{props.title}</h1>
+            <h6>by:{props.author} </h6>
+            <br/>
+            <p>{props.content}</p>
           </div>
 
-          <p><a href={`/edit/${props._id}`}>Edit</a>  <a href="/blog" onClick={() => deletePost(props._id)}>Delete</a></p>
+           <a href="/blog" onClick={() => deletePost(props._id)}>Delete</a>
 
     </div>
    
